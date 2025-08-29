@@ -28,7 +28,7 @@ const Footer = () => {
               <a href="#" className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors">
+              <a href="https://twitter.com/NSENGIYUMV71627" target="_blank" rel="noopener noreferrer" className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
               <a href="#" className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors">
