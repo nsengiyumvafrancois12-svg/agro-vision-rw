@@ -1,40 +1,72 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Target, Eye, Heart } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Target, Eye, Heart, Award, TrendingUp, Users, CheckCircle } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const About = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const section = document.getElementById('about');
+    if (section) observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const values = [
+    { icon: CheckCircle, title: "Sustainability", desc: "Promoting eco-friendly and regenerative agricultural practices" },
+    { icon: Users, title: "Youth Empowerment", desc: "Unlocking the potential of young people as drivers of innovation" },
+    { icon: TrendingUp, title: "Innovation", desc: "Adopting climate-smart and modern farming approaches" },
+    { icon: Heart, title: "Community Impact", desc: "Enhancing livelihoods while conserving nature" }
+  ];
+
   return (
-    <section id="about" className="py-20 bg-gradient-earth">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="section-padding bg-gradient-earth">
+      <div className="container mx-auto container-padding">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            About Youth Agro Visionary Farm
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            A dynamic and youth-led agribusiness company legally registered with the Rwanda Development Board (RDB) 
-            in 2024, committed to transforming Rwanda's agriculture sector through sustainable innovation.
-          </p>
+          <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-balance">
+              About <span className="gradient-text">Youth Agro Visionary Farm</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-4xl mx-auto text-balance leading-relaxed">
+              A dynamic and youth-led agribusiness company legally registered with the Rwanda Development Board (RDB) in 2024, 
+              committed to transforming Rwanda's agriculture sector through innovation and sustainability.
+            </p>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          <Card className="border-border/50 shadow-soft hover:shadow-strong transition-all duration-300">
-            <CardContent className="p-8 text-center">
-              <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-6">
+        <div className={`grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
+          <Card className="text-center hover-lift group">
+            <CardHeader>
+              <div className="mx-auto p-4 bg-gradient-hero rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform">
                 <Eye className="h-8 w-8 text-primary-foreground" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Our Vision</h3>
+              <CardTitle className="text-xl font-bold">Our Vision</CardTitle>
+            </CardHeader>
+            <CardContent>
               <p className="text-muted-foreground leading-relaxed">
-                To build a generation of visionary youth agripreneurs who transform agriculture into a 
-                sustainable, profitable, and climate-resilient sector in Rwanda.
+                To build a generation of visionary youth agripreneurs who transform agriculture 
+                into a sustainable, profitable, and climate-resilient sector in Rwanda.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="border-border/50 shadow-soft hover:shadow-strong transition-all duration-300">
-            <CardContent className="p-8 text-center">
-              <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-6">
-                <Target className="h-8 w-8 text-primary-foreground" />
+          <Card className="text-center hover-lift group">
+            <CardHeader>
+              <div className="mx-auto p-4 bg-gradient-accent rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform">
+                <Target className="h-8 w-8 text-accent-foreground" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Our Mission</h3>
+              <CardTitle className="text-xl font-bold">Our Mission</CardTitle>
+            </CardHeader>
+            <CardContent>
               <p className="text-muted-foreground leading-relaxed">
                 To empower youth and communities through sustainable farming, agribusiness training, 
                 and conservation initiatives that create jobs, improve food security, and protect the environment.
@@ -42,52 +74,77 @@ const About = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-border/50 shadow-soft hover:shadow-strong transition-all duration-300">
-            <CardContent className="p-8 text-center">
-              <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-6">
+          <Card className="text-center hover-lift group">
+            <CardHeader>
+              <div className="mx-auto p-4 bg-forest-green rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform">
                 <Heart className="h-8 w-8 text-primary-foreground" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Our Values</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Sustainability, Youth Empowerment, Innovation, and Community Impact guide 
-                everything we do in transforming Rwanda's agricultural landscape.
-              </p>
+              <CardTitle className="text-xl font-bold">Our Values</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 gap-3">
+                {values.map((value, index) => (
+                  <div key={index} className="flex items-start space-x-2 text-left">
+                    <value.icon className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-medium text-foreground text-sm">{value.title}</div>
+                      <div className="text-xs text-muted-foreground">{value.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </CardContent>
           </Card>
         </div>
 
-        <div className="bg-card rounded-2xl p-8 lg:p-12 border border-border/50 shadow-soft">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div className={`glass-card rounded-2xl p-8 lg:p-12 shadow-strong border border-border/50 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.4s' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-6">
-                Empowering Youth, Transforming Agriculture
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-balance">
+                Transforming Agriculture Across <span className="gradient-text">Rwanda</span>
               </h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Youth Agro Visionary Farm Ltd operates across multiple interconnected areas of agriculture 
-                and environmental sustainability. We specialize in high-value crops, promote agroforestry 
-                and restoration, produce organic compost, and provide comprehensive training programs.
+                We operate across multiple interconnected areas of agriculture and environmental sustainability, 
+                from farming high-value crops to training the next generation of agripreneurs.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Our integrated approach combines climate-smart agriculture with youth empowerment, 
-                creating a sustainable ecosystem that benefits both people and the environment.
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Our integrated approach combines modern farming techniques with traditional knowledge, 
+                ensuring sustainable practices that benefit both farmers and the environment.
               </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">Climate-Smart</span>
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">Youth-Led</span>
+                <span className="px-3 py-1 bg-secondary/30 text-secondary-foreground rounded-full text-sm font-medium">Sustainable</span>
+              </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="text-center p-4">
-                <div className="text-3xl font-bold text-primary mb-2">2024</div>
-                <div className="text-sm text-muted-foreground">Founded</div>
+            
+            <div className="grid grid-cols-2 gap-6">
+              <div className="text-center p-6 glass-card rounded-xl hover-lift">
+                <Award className="h-8 w-8 text-primary mx-auto mb-3" />
+                <div className="text-2xl font-bold text-foreground mb-1">2024</div>
+                <div className="text-sm text-muted-foreground">Founded & Registered</div>
+                <div className="text-xs text-muted-foreground/60">with RDB</div>
               </div>
-              <div className="text-center p-4">
-                <div className="text-3xl font-bold text-primary mb-2">5+</div>
-                <div className="text-sm text-muted-foreground">Core Areas</div>
+              
+              <div className="text-center p-6 glass-card rounded-xl hover-lift">
+                <TrendingUp className="h-8 w-8 text-accent mx-auto mb-3" />
+                <div className="text-2xl font-bold text-foreground mb-1">100%</div>
+                <div className="text-sm text-muted-foreground">Sustainable Practices</div>
+                <div className="text-xs text-muted-foreground/60">Certified methods</div>
               </div>
-              <div className="text-center p-4">
-                <div className="text-3xl font-bold text-primary mb-2">100%</div>
-                <div className="text-sm text-muted-foreground">Youth Led</div>
+              
+              <div className="text-center p-6 glass-card rounded-xl hover-lift">
+                <Users className="h-8 w-8 text-secondary-foreground mx-auto mb-3" />
+                <div className="text-2xl font-bold text-foreground mb-1">50+</div>
+                <div className="text-sm text-muted-foreground">Active Partners</div>
+                <div className="text-xs text-muted-foreground/60">Community network</div>
               </div>
-              <div className="text-center p-4">
-                <div className="text-3xl font-bold text-primary mb-2">RDB</div>
-                <div className="text-sm text-muted-foreground">Registered</div>
+              
+              <div className="text-center p-6 glass-card rounded-xl hover-lift">
+                <Target className="h-8 w-8 text-forest-green mx-auto mb-3" />
+                <div className="text-2xl font-bold text-foreground mb-1">5</div>
+                <div className="text-sm text-muted-foreground">Core Focus Areas</div>
+                <div className="text-xs text-muted-foreground/60">Integrated approach</div>
               </div>
             </div>
           </div>
