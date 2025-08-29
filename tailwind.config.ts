@@ -52,6 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Agriculture theme colors
+				'forest-green': 'hsl(var(--forest-green))',
+				'forest-green-light': 'hsl(var(--forest-green-light))',
+				'earth-brown': 'hsl(var(--earth-brown))',
+				'harvest-gold': 'hsl(var(--harvest-gold))',
+				'sky-blue': 'hsl(var(--sky-blue))',
+				'soil-brown': 'hsl(var(--soil-brown))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +91,30 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'grow': {
+					'0%': { transform: 'scale(0.8)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'grow': 'grow 0.8s ease-out forwards',
+			},
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-earth': 'var(--gradient-earth)',
+				'gradient-accent': 'var(--gradient-accent)',
+			},
+			boxShadow: {
+				'soft': 'var(--shadow-soft)',
+				'strong': 'var(--shadow-strong)',
 			}
 		}
 	},
