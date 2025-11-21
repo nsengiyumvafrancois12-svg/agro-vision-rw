@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Target, Eye, Heart, Award, TrendingUp, Users, CheckCircle } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Target, Eye, Brain, Smartphone, Database, Users, CheckCircle, TrendingUp } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const About = () => {
@@ -22,10 +23,10 @@ const About = () => {
   }, []);
 
   const values = [
-    { icon: CheckCircle, title: "Sustainability", desc: "Promoting eco-friendly and regenerative agricultural practices" },
-    { icon: Users, title: "Youth Empowerment", desc: "Unlocking the potential of young people as drivers of innovation" },
-    { icon: TrendingUp, title: "Innovation", desc: "Adopting climate-smart and modern farming approaches" },
-    { icon: Heart, title: "Community Impact", desc: "Enhancing livelihoods while conserving nature" }
+    { icon: Brain, title: "AI & Innovation", desc: "Advanced technology for smarter farming decisions" },
+    { icon: Smartphone, title: "Digital Inclusion", desc: "Accessible platforms for all farmers, even without smartphones" },
+    { icon: Database, title: "Fair Data Economy", desc: "Farmers benefit from their own data through revenue sharing" },
+    { icon: CheckCircle, title: "Sustainability", desc: "Climate-smart practices that protect the environment" }
   ];
 
   return (
@@ -33,12 +34,15 @@ const About = () => {
       <div className="container mx-auto container-padding">
         <div className="text-center mb-16">
           <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            <Badge variant="success" className="text-sm font-medium mb-4 inline-block">
+              Welcome to Smart Hinga
+            </Badge>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-balance">
-              About <span className="gradient-text">Youth Agro Visionary Farm</span>
+              Where Innovation Meets <span className="gradient-text">Agriculture</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-4xl mx-auto text-balance leading-relaxed">
-              A dynamic and youth-led agribusiness company legally registered with the Rwanda Development Board (RDB) in 2024, 
-              committed to transforming Rwanda's agriculture sector through innovation and sustainability.
+              We are dedicated to empowering farmers, agribusinesses, and communities through smart, data-driven, 
+              and climate-resilient farming solutions for Rwanda's agricultural transformation.
             </p>
           </div>
         </div>
@@ -53,8 +57,9 @@ const About = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-relaxed">
-                To build a generation of visionary youth agripreneurs who transform agriculture 
-                into a sustainable, profitable, and climate-resilient sector in Rwanda.
+                To empower every Rwandan smallholder farmer to make data-driven decisions, increase productivity, 
+                and earn from the digital value of their farm data—creating a climate-smart, inclusive, and 
+                profitable agricultural ecosystem.
               </p>
             </CardContent>
           </Card>
@@ -68,8 +73,9 @@ const About = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-relaxed">
-                To empower youth and communities through sustainable farming, agribusiness training, 
-                and conservation initiatives that create jobs, improve food security, and protect the environment.
+                Provide accessible, real-time agricultural insights and smart farming tools through AI and IoT 
+                technologies, while ensuring fair data ownership, compensation, and digital inclusion for youth 
+                and women farmers.
               </p>
             </CardContent>
           </Card>
@@ -77,7 +83,7 @@ const About = () => {
           <Card className="text-center hover-lift group">
             <CardHeader>
               <div className="mx-auto p-4 bg-forest-green rounded-xl w-fit mb-4 group-hover:scale-110 transition-transform">
-                <Heart className="h-8 w-8 text-primary-foreground" />
+                <Users className="h-8 w-8 text-primary-foreground" />
               </div>
               <CardTitle className="text-xl font-bold">Our Values</CardTitle>
             </CardHeader>
@@ -101,50 +107,53 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6 text-balance">
-                Transforming Agriculture Across <span className="gradient-text">Rwanda</span>
+                Technology That Transforms <span className="gradient-text">Livelihoods</span>
               </h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                We operate across multiple interconnected areas of agriculture and environmental sustainability, 
-                from farming high-value crops to training the next generation of agripreneurs.
+                At the heart of our work is a belief that technology can unlock the full potential of Rwanda's 
+                agricultural sector. Through advanced AI tools, IoT sensors, real-time insights, and farmer-focused 
+                digital platforms, we help farmers increase productivity, reduce losses, adapt to climate change, 
+                and earn more from their hard work.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Our integrated approach combines modern farming techniques with traditional knowledge, 
-                ensuring sustainable practices that benefit both farmers and the environment.
+                Whether you're looking to monitor your crops, access hyper-local weather data, automate irrigation, 
+                detect diseases early, or connect directly with buyers, we provide the tools and support you need 
+                to grow smarter and succeed.
               </p>
               <div className="flex flex-wrap gap-2">
-                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">Climate-Smart</span>
-                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">Youth-Led</span>
-                <span className="px-3 py-1 bg-secondary/30 text-secondary-foreground rounded-full text-sm font-medium">Sustainable</span>
+                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">AI-Powered</span>
+                <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">IoT Enabled</span>
+                <span className="px-3 py-1 bg-secondary/30 text-secondary-foreground rounded-full text-sm font-medium">Data-Driven</span>
               </div>
             </div>
             
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center p-6 glass-card rounded-xl hover-lift">
-                <Award className="h-8 w-8 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold text-foreground mb-1">2024</div>
-                <div className="text-sm text-muted-foreground">Founded & Registered</div>
-                <div className="text-xs text-muted-foreground/60">with RDB</div>
+                <Brain className="h-8 w-8 text-primary mx-auto mb-3" />
+                <div className="text-2xl font-bold text-foreground mb-1">95%</div>
+                <div className="text-sm text-muted-foreground">Disease Detection</div>
+                <div className="text-xs text-muted-foreground/60">Success rate</div>
               </div>
               
               <div className="text-center p-6 glass-card rounded-xl hover-lift">
                 <TrendingUp className="h-8 w-8 text-accent mx-auto mb-3" />
+                <div className="text-2xl font-bold text-foreground mb-1">25%</div>
+                <div className="text-sm text-muted-foreground">Higher Income</div>
+                <div className="text-xs text-muted-foreground/60">Through market access</div>
+              </div>
+              
+              <div className="text-center p-6 glass-card rounded-xl hover-lift">
+                <Smartphone className="h-8 w-8 text-secondary-foreground mx-auto mb-3" />
                 <div className="text-2xl font-bold text-foreground mb-1">100%</div>
-                <div className="text-sm text-muted-foreground">Sustainable Practices</div>
-                <div className="text-xs text-muted-foreground/60">Certified methods</div>
+                <div className="text-sm text-muted-foreground">Accessible</div>
+                <div className="text-xs text-muted-foreground/60">USSD & mobile app</div>
               </div>
               
               <div className="text-center p-6 glass-card rounded-xl hover-lift">
-                <Users className="h-8 w-8 text-secondary-foreground mx-auto mb-3" />
-                <div className="text-2xl font-bold text-foreground mb-1">50+</div>
-                <div className="text-sm text-muted-foreground">Active Partners</div>
-                <div className="text-xs text-muted-foreground/60">Community network</div>
-              </div>
-              
-              <div className="text-center p-6 glass-card rounded-xl hover-lift">
-                <Target className="h-8 w-8 text-forest-green mx-auto mb-3" />
-                <div className="text-2xl font-bold text-foreground mb-1">5</div>
-                <div className="text-sm text-muted-foreground">Core Focus Areas</div>
-                <div className="text-xs text-muted-foreground/60">Integrated approach</div>
+                <Database className="h-8 w-8 text-forest-green mx-auto mb-3" />
+                <div className="text-2xl font-bold text-foreground mb-1">Fair</div>
+                <div className="text-sm text-muted-foreground">Data Economy</div>
+                <div className="text-xs text-muted-foreground/60">Revenue sharing</div>
               </div>
             </div>
           </div>

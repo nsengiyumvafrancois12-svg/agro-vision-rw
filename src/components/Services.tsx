@@ -1,11 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Sprout, TreePine, Recycle, GraduationCap, CloudRain, ArrowRight, CheckCircle } from "lucide-react";
+import { Sprout, Droplets, Cloud, TrendingUp, BookOpen, Database, ArrowRight, CheckCircle } from "lucide-react";
 import { useState, useEffect } from "react";
-import trainingImage from "@/assets/training-education.jpg";
-import agroforestryImage from "@/assets/agroforestry-restoration.jpg";
-import compostImage from "@/assets/compost-soil.jpg";
+import greenhouseTomatoes from "@/assets/greenhouse-tomatoes.jpg";
+import sensorImage from "@/assets/soil-sensor-equipment.jpg";
+import trainingImage from "@/assets/training-materials.jpg";
+import greenhouseExterior from "@/assets/greenhouse-exterior.jpg";
+import farmersImage from "@/assets/farmers-happy-mobile.webp";
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,48 +31,57 @@ const Services = () => {
   const services = [
     {
       icon: Sprout,
-      title: "Farming & Production",
-      description: "We specialize in high-value crops including Hass avocado, tomatoes, and other horticultural products using sustainable farming practices.",
-      image: trainingImage,
-      features: ["Hass Avocado Cultivation", "Tomato Production", "Horticultural Crops", "Organic Farming Methods"],
-      badge: "Core Service",
+      title: "Crop Health Monitoring",
+      description: "AI-powered early disease detection and real-time pest alerts prevent losses up to 95%, with personalized crop recommendations to optimize yield by 30%+.",
+      image: greenhouseTomatoes,
+      features: ["Early Disease Detection", "Real-time Pest Alerts", "Nutrient Deficiency Tracking", "Personalized Crop Recommendations"],
+      badge: "AI-Powered",
       color: "success"
     },
     {
-      icon: TreePine,
-      title: "Agroforestry & Restoration",
-      description: "Through tree nursery beds and forest restoration activities, we contribute to biodiversity conservation and landscape restoration.",
-      image: agroforestryImage,
-      features: ["Tree Nursery Management", "Forest Restoration", "Biodiversity Conservation", "Landscape Rehabilitation"],
-      badge: "Environmental",
+      icon: Droplets,
+      title: "Smart Irrigation & Soil Management",
+      description: "IoT soil sensors measure moisture, pH, NPK nutrients, temperature, and salinity in real-time. Solar-powered monitoring reduces water usage by 65%.",
+      image: sensorImage,
+      features: ["Soil Moisture Monitoring", "Automated Irrigation Control", "NPK Nutrient Analysis", "Water Usage Optimization"],
+      badge: "IoT Technology",
       color: "default"
     },
     {
-      icon: Recycle,
-      title: "Composting & Soil Health",
-      description: "We produce organic compost tailored to improve soil fertility, reduce chemical inputs, and support sustainable farming.",
-      image: compostImage,
-      features: ["Organic Compost Production", "Soil Fertility Improvement", "Waste Management", "Natural Fertilizers"],
-      badge: "Sustainability",
-      color: "warning"
-    },
-    {
-      icon: GraduationCap,
-      title: "Training & Capacity Building",
-      description: "We train and mentor youth in agribusiness, equipping them with skills in climate-smart agriculture and value chain development.",
-      image: trainingImage,
-      features: ["Youth Mentorship", "Agribusiness Training", "Skills Development", "Leadership Programs"],
-      badge: "Education",
+      icon: Cloud,
+      title: "Hyper-local Weather Intelligence",
+      description: "Real-time weather forecasts and alerts tailored to individual farms enable timely planting, irrigation, and harvesting decisions.",
+      image: greenhouseExterior,
+      features: ["Real-time Weather Alerts", "Farm-specific Forecasts", "Climate Pattern Analysis", "Seasonal Planning Support"],
+      badge: "Predictive",
       color: "secondary"
     },
     {
-      icon: CloudRain,
-      title: "Climate-Smart Agribusiness",
-      description: "We integrate innovative, eco-friendly practices that enhance productivity while building resilience against climate change.",
-      image: agroforestryImage,
-      features: ["Climate Adaptation", "Sustainable Practices", "Innovation Integration", "Resilience Building"],
-      badge: "Innovation",
+      icon: TrendingUp,
+      title: "Market & Financial Tools",
+      description: "Connect directly with buyers for fair prices (25% higher income) and track profits, expenses, and input usage for better financial management.",
+      image: farmersImage,
+      features: ["Direct Market Access", "Price Transparency", "Profit Tracking", "Input Cost Management"],
+      badge: "Marketplace",
+      color: "warning"
+    },
+    {
+      icon: BookOpen,
+      title: "Knowledge & Advisory Support",
+      description: "On-demand agronomist advice in Kinyarwanda, access to expert training, and best practices via our mobile platform.",
+      image: trainingImage,
+      features: ["Expert Agronomist Advice", "Training Programs", "Best Practice Guides", "Local Language Support"],
+      badge: "Education",
       color: "default"
+    },
+    {
+      icon: Database,
+      title: "Data Monetization & Inclusion",
+      description: "Farmers opt-in to share anonymized farm data. Revenue from data sharing is redistributed to farmers via mobile wallets, building an inclusive data economy.",
+      image: sensorImage,
+      features: ["Fair Data Compensation", "Privacy Protection", "Revenue Sharing", "Digital Inclusion"],
+      badge: "Ethical",
+      color: "success"
     }
   ];
 

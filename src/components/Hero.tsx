@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, Sprout, TreePine, Play, ChevronDown } from "lucide-react";
-import heroImage from "@/assets/hero-farming.jpg";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Users, TrendingUp, Droplets, Play } from "lucide-react";
+import greenhouseImage from "@/assets/greenhouse-exterior.jpg";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -13,7 +14,7 @@ const Hero = () => {
       {/* Background Image with Parallax Effect */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url(${greenhouseImage})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70"></div>
       </div>
@@ -29,18 +30,22 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto container-padding">
         <div className="max-w-5xl">
           <div className="animate-fade-in-up">
+            <Badge variant="success" className="text-sm font-medium px-4 py-2 mb-4">
+              🌱 Smart Agriculture Technology
+            </Badge>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight text-balance">
-              Transforming Agriculture Through{" "}
+              Empowering Farmers Through{" "}
               <span className="gradient-text animate-pulse-slow">
-                Youth Innovation
+                AI & IoT Innovation
               </span>
             </h1>
           </div>
           
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl leading-relaxed text-balance">
-              Youth Agro Visionary Farm Ltd empowers young Rwandans to revolutionize agriculture 
-              through sustainable farming, climate-smart practices, and ecosystem restoration for future generations.
+              Smart Hinga combines AI-powered analytics, IoT sensors, and mobile technology to help 
+              Rwandan farmers make data-driven decisions, increase productivity by 30%, and earn more 
+              from their farms through climate-smart solutions.
             </p>
           </div>
           
@@ -67,18 +72,17 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Enhanced Stats */}
           <div className="animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="glass-card p-6 rounded-xl hover-lift group">
                 <div className="flex items-center space-x-4">
                   <div className="p-4 bg-gradient-hero rounded-xl group-hover:scale-110 transition-transform">
-                    <Users className="h-8 w-8 text-primary-foreground" />
+                    <TrendingUp className="h-8 w-8 text-primary-foreground" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-foreground mb-1">500+</div>
-                    <div className="text-sm text-muted-foreground font-medium">Youth Trained</div>
-                    <div className="text-xs text-muted-foreground/80">In agribusiness skills</div>
+                    <div className="text-3xl font-bold text-foreground mb-1">30%+</div>
+                    <div className="text-sm text-muted-foreground font-medium">Yield Increase</div>
+                    <div className="text-xs text-muted-foreground/80">Through AI insights</div>
                   </div>
                 </div>
               </div>
@@ -86,12 +90,12 @@ const Hero = () => {
               <div className="glass-card p-6 rounded-xl hover-lift group">
                 <div className="flex items-center space-x-4">
                   <div className="p-4 bg-gradient-accent rounded-xl group-hover:scale-110 transition-transform">
-                    <Sprout className="h-8 w-8 text-accent-foreground" />
+                    <Droplets className="h-8 w-8 text-accent-foreground" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-foreground mb-1">200+</div>
-                    <div className="text-sm text-muted-foreground font-medium">Hectares Cultivated</div>
-                    <div className="text-xs text-muted-foreground/80">Sustainably farmed</div>
+                    <div className="text-3xl font-bold text-foreground mb-1">65%</div>
+                    <div className="text-sm text-muted-foreground font-medium">Water Savings</div>
+                    <div className="text-xs text-muted-foreground/80">Smart irrigation</div>
                   </div>
                 </div>
               </div>
@@ -99,12 +103,12 @@ const Hero = () => {
               <div className="glass-card p-6 rounded-xl hover-lift group">
                 <div className="flex items-center space-x-4">
                   <div className="p-4 bg-forest-green rounded-xl group-hover:scale-110 transition-transform">
-                    <TreePine className="h-8 w-8 text-primary-foreground" />
+                    <Users className="h-8 w-8 text-primary-foreground" />
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-foreground mb-1">10,000+</div>
-                    <div className="text-sm text-muted-foreground font-medium">Trees Planted</div>
-                    <div className="text-xs text-muted-foreground/80">For restoration</div>
+                    <div className="text-3xl font-bold text-foreground mb-1">95%</div>
+                    <div className="text-sm text-muted-foreground font-medium">Satisfaction Rate</div>
+                    <div className="text-xs text-muted-foreground/80">From pilot users</div>
                   </div>
                 </div>
               </div>
