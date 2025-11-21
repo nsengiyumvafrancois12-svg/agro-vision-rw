@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Leaf } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import yavfLogo from "@/assets/yavf-logo.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,13 +19,11 @@ const Header = () => {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="p-2 bg-gradient-hero rounded-lg">
-              <Leaf className="h-6 w-6 text-primary-foreground" />
-            </div>
+          <div className="flex items-center space-x-3">
+            <img src={yavfLogo} alt="Youth Agro Visionary Farm Logo" className="h-12 w-12 rounded-lg object-cover" />
             <div>
-              <h1 className="text-lg font-bold text-foreground">Youth Agro Visionary</h1>
-              <p className="text-xs text-muted-foreground">Farm Ltd</p>
+              <h1 className="text-base font-bold text-foreground leading-tight">Youth Agro Visionary Farm Ltd</h1>
+              <p className="text-xs text-muted-foreground">(Impact1K+)</p>
             </div>
           </div>
 
