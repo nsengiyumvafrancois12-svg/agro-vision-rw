@@ -1,4 +1,5 @@
-import { Leaf, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import yavfLogo from "@/assets/yavf-logo.jpg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,13 +10,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Logo and Description */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="p-2 bg-primary-foreground/10 rounded-lg">
-                <Leaf className="h-6 w-6" />
-              </div>
+            <div className="flex items-center space-x-3 mb-4">
+              <img src={yavfLogo} alt="Youth Agro Visionary Farm Logo" className="h-12 w-12 rounded-lg object-cover" />
               <div>
-                <h3 className="text-lg font-bold">Youth Agro Visionary</h3>
-                <p className="text-xs opacity-90">Farm Ltd</p>
+                <h3 className="text-base font-bold">Youth Agro Visionary Farm Ltd</h3>
+                <p className="text-xs opacity-90">(Impact1K+)</p>
               </div>
             </div>
             <p className="text-primary-foreground/80 mb-6 max-w-md leading-relaxed">
